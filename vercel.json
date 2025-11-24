@@ -3,5 +3,6 @@
     "env": {
       "NODE_VERSION": "18"
     }
-  }
+  },
+  "buildCommand": "CI=false npm run build"
 }
