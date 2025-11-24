@@ -1,0 +1,46 @@
+/* GENEL GRID YAPISI */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 380px;   /* Sol yazı — Sağ fotoğraf kolonu */
+  gap: 40px;
+}
+
+/* SOL YAZI ALANI */
+.about-left {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* SAĞ FOTOĞRAF KOLONU */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;                 /* Fotoğraflar arası boşluk */
+}
+
+/* FOTOĞRAFLAR */
+.about-right img {
+  width: 100%;
+  aspect-ratio: 1 / 1;       /* Kare görüntü */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* MOBIL RESPONSIVE */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-right {
+    margin-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .about-right img {
+    width: calc(50% - 12px);
+  }
+}

@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+/* ANA İÇERİK CONTAINER */
+.main-container {
+  max-width: 1600px;
+  margin: 40px auto;
+  padding: 40px 24px;
+  background: #f9f9f9;     /* navbar'dan farklı açık bir zemin */
+  border-radius: 12px;
+  min-height: calc(100vh - 120px);  /* Sayfayı doldursun */
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}

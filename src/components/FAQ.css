@@ -1,0 +1,36 @@
+.faq-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+}
+
+.faq-question {
+  padding: 18px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq-icon {
+  font-size: 20px;
+}
+
+/* Height animasyonunun bulunduğu kısım */
+.faq-answer-wrapper {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.45, 0, 0.1, 1);
+}
+
+.faq-answer {
+  padding: 16px 22px 22px;
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+}
