@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import bannerData from "../bannerData";
 import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+// Removed invalid slick-theme.css import
 import { useNavigate } from "react-router-dom";
 import "./Anasayfa.css";
 import FAQ from "../components/FAQ";
