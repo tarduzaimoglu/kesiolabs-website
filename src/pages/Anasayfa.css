@@ -90,6 +90,7 @@
 .main-button:hover {
   transform: translateY(-3px);
 }
+
 /* --- MAP SECTION --- */
 .homepage-map-section {
   margin-top: 60px;
@@ -119,6 +120,7 @@
   height: 100%;
   border: 0;
 }
+
 /* --- BANNER SLIDER GENEL --- */
 .banner-slider {
   width: 100%;
@@ -126,75 +128,13 @@
   overflow: hidden;
 }
 
-/* --- HER SLIDE --- */
+/* --- SLIDE --- */
 .banner-slide {
   position: relative;
   width: 100%;
 }
 
-/* --- RESİMİN KENDİSİ --- */
-.banner-img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;       /* Mobilde bile taşı taşırmadan görünür */
-  border-radius: 12px;
-}
-
-/* --- MOBİLDE BANNER YÜKSEKLİĞİ OTOMATİK OLSUN --- */
-@media (max-width: 768px) {
-  .banner-img {
-    height: auto;
-    max-height: 300px;
-  }
-}
-
-/* --- OVERLAY (EĞER TEKRAR İSTERSEN) --- */
-.banner-overlay {
-  position: absolute;
-  left: 50%;
-  bottom: 40px;
-  transform: translateX(-50%);
-  text-align: center;
-  color: white;
-
-  /* mobilde küçülür */
-  width: 90%;
-}
-
-.banner-overlay h1 {
-  font-size: 36px;
-  font-weight: 800;
-}
-
-.banner-overlay p {
-  margin-top: 8px;
-  font-size: 18px;
-}
-
-.banner-btn {
-  margin-top: 16px;
-  background: #2f80ff;
-  color: white;
-  padding: 14px 34px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.25s ease;
-}
-
-.banner-btn:hover {
-  background: #1f6be0;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .banner-overlay h1 { font-size: 24px; }
-  .banner-overlay p { font-size: 14px; }
-  .banner-btn { padding: 10px 24px; font-size: 14px; }
-}
-/* Desktop banner */
+/* --- BANNER IMAGE (tek versiyon) --- */
 .banner-img {
   width: 100%;
   height: 600px;
@@ -202,17 +142,13 @@
   border-radius: 12px;
 }
 
-/* Mobil banner 3:4 oran */
 @media (max-width: 768px) {
   .banner-img {
-    width: 100%;
+    aspect-ratio: 3 / 4;
     height: auto;
-    aspect-ratio: 3 / 4;   /* ← Mobilde tam 3:4 */
     object-fit: cover;
-    border-radius: 12px;
   }
 }
-
 
 /* --- CUSTOM ARROWS --- */
 .custom-arrow {
@@ -239,13 +175,8 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-.custom-prev {
-  left: 20px;
-}
-
-.custom-next {
-  right: 20px;
-}
+.custom-prev { left: 20px; }
+.custom-next { right: 20px; }
 
 @media (max-width: 768px) {
   .custom-arrow {
@@ -257,7 +188,7 @@
   .custom-next { right: 10px; }
 }
 
-/* --- CUSTOM DOTS --- */
+/* --- CUSTOM DOTS (mavi olanlar) --- */
 .custom-dots {
   margin-top: 12px !important;
   display: flex !important;
@@ -266,7 +197,6 @@
   padding: 0;
 }
 
-.custom-dots li { width: auto; height: auto; }
 .custom-dots li button { padding: 0; }
 
 .custom-dot {
@@ -290,28 +220,23 @@
     height: 9px;
   }
 }
-/* Slick default dot içeriğini tamamen yok et */
+
+/* --- DEFAULT SLICK DOTS (SİYAH) TAMAMEN YOK --- */
 .slick-dots li button:before {
-  font-size: 0 !important;
-  color: transparent !important;
-  opacity: 0 !important;
+  content: "" !important;
+  display: none !important;
 }
+
 .slick-dots li button {
-  width: 0px !important;
-  height: 0px !important;
-  overflow: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
   padding: 0 !important;
+  margin: 0 !important;
   border: none !important;
+  overflow: hidden !important;
   background: transparent !important;
 }
 
-.slick-dots li button:before {
-  display: none !important;
-}
 .slick-dots {
   position: static !important;
-}
-
-.slick-dots li {
-  margin: 0 6px !important;
 }

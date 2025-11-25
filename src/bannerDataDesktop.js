@@ -8,5 +8,10 @@ export default [
     id: 2,
     image: "/banners/desktop2.jpg",
     link: "/BoyleCalisir"
+  },
+  {
+    id: 3,
+    image: "/banners/desktop3.jpg",   // ← yeni banner
+    link: "/Iletisim"                 // ← istersen başka link yazarım
   }
 ];

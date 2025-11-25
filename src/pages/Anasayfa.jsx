@@ -46,7 +46,7 @@ const bannersToShow = isMobile ? bannerMobile : bannerDesktop;
 
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 600,
     autoplay: true,

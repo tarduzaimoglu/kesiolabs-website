@@ -1,6 +1,6 @@
 // src/pages/TeklifAl.jsx
-import { useState, Suspense } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
+import { useState, Suspense, useMemo } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 
 import Model from "../components/Model";
@@ -9,7 +9,7 @@ import TransparentCheckerPlate from "../components/TransparentCheckerPlate";
 import "./TeklifAl.css";
 
 function LogoPanel() {
-  const texture = useTexture("/kesiolabs-logo.png"); // MUST BE IN public/
+  const texture = useTexture("/kesiolabs-logo.png");
 
   return (
     <mesh position={[0, 90, -260]} rotation={[-0.25, 0, 0]}>
@@ -47,25 +47,30 @@ export default function TeklifAl() {
     if (f) setFileUrl(URL.createObjectURL(f));
   }
 
-  const solidCm3 = volMM3 / 1000.0;
-  const SA_cm2 = surfMM2 / 100.0;
-  const SAh_cm2 = horizMM2 / 100.0;
-  const wallThick_cm = (walls * nozzle * 0.92) / 10.0;
+  // 🔥 HESAPLAMA BLOĞU USEMEMO'YA ALINDI
+  const { weightG, unitTRY, totalTRY } = useMemo(() => {
+    const solidCm3 = volMM3 / 1000.0;
+    const SA_cm2 = surfMM2 / 100.0;
+    const SAh_cm2 = horizMM2 / 100.0;
+    const wallThick_cm = (walls * nozzle * 0.92) / 10.0;
 
-  const Vtb_cm3 = SAh_cm2 * (topL + botL) * (layerH / 10.0);
-  const SAside_cm2 = Math.max(0, SA_cm2 - SAh_cm2);
+    const Vtb_cm3 = SAh_cm2 * (topL + botL) * (layerH / 10.0);
+    const SAside_cm2 = Math.max(0, SA_cm2 - SAh_cm2);
 
-  let Vwall_cm3 = SAside_cm2 * wallThick_cm;
-  Vwall_cm3 = Math.min(Vwall_cm3, solidCm3 * 0.35);
+    let Vwall_cm3 = SAside_cm2 * wallThick_cm;
+    Vwall_cm3 = Math.min(Vwall_cm3, solidCm3 * 0.35);
 
-  const core_cm3 = Math.max(0, solidCm3 - Vtb_cm3 - Vwall_cm3);
-  const Vinf_cm3 = core_cm3 * (infill / 100) * infillEff;
+    const core_cm3 = Math.max(0, solidCm3 - Vtb_cm3 - Vwall_cm3);
+    const Vinf_cm3 = core_cm3 * (infill / 100) * infillEff;
 
-  const _Vtot_cm3 = (Vtb_cm3 + Vwall_cm3 + Vinf_cm3) * flow * CAL_K;
+    const _Vtot_cm3 = (Vtb_cm3 + Vwall_cm3 + Vinf_cm3) * flow * CAL_K;
 
-  const weightG = _Vtot_cm3 * MATERIAL_DENSITY;
-  const unitTRY = weightG * GRAM_PRICE;
-  const totalTRY = unitTRY * qty;
+    const weightG = _Vtot_cm3 * MATERIAL_DENSITY;
+    const unitTRY = weightG * GRAM_PRICE;
+    const totalTRY = unitTRY * qty;
+
+    return { weightG, unitTRY, totalTRY };
+  }, [volMM3, surfMM2, horizMM2, infill, qty]); // 👈 bunlar değişince hesap yeniden çalışır
 
   return (
     <div className="teklif-wrapper">
@@ -138,7 +143,6 @@ export default function TeklifAl() {
         <div className="preview-box glass-panel">
           <div className="canvas-wrapper">
 
-            {/* --- PREMİUM CANVAS + LOGO PANEL --- */}
             <Canvas
               shadows
               camera={{
@@ -158,10 +162,7 @@ export default function TeklifAl() {
                 shadow-mapSize-height={1024}
               />
 
-              {/* === KESIOLABS LOGO PANELİ === */}
               <LogoPanel />
-
-              {/* GRID */}
               <TransparentCheckerPlate size={260} />
 
               <Suspense fallback={null}>
@@ -199,7 +200,6 @@ export default function TeklifAl() {
 
       </div>
 
-      {/* Uyarılar + WhatsApp */}
       <div className="note-whatsapp-wrapper">
         <ul className="notes">
           <li>Fiyatlar yaklaşık değerlerdir; üretim öncesi kontrol sonrası değişiklik gösterebilir.</li>
