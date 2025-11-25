@@ -1,0 +1,120 @@
+/* === GENEL === */
+.bc-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* === HERO === */
+.bc-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.bc-hero h1 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.bc-hero p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #475569;
+}
+
+/* === ADIMLAR === */
+.bc-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.bc-step {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+}
+
+.bc-number {
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  background: #fff;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid #e5e7eb;
+}
+
+.bc-step h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 20px;
+}
+
+.bc-step p {
+  font-size: 15px;
+  color: #475569;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.bc-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* === CTA === */
+.bc-cta {
+  margin-top: 80px;
+  text-align: center;
+  background: #f8fafc;
+  padding: 50px 20px;
+  border-radius: 20px;
+}
+
+.bc-cta h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.bc-cta p {
+  margin-top: 6px;
+  font-size: 16px;
+  color: #475569;
+}
+
+.bc-button {
+  display: inline-block;
+  margin-top: 22px;
+  background: #397eff;
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 10px 35px rgba(57, 126, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.bc-button:hover {
+  transform: translateY(-3px);
+}
+
+/* === MOBİL === */
+@media (max-width: 768px) {
+  .bc-hero h1 { font-size: 32px; }
+  .bc-hero p { font-size: 15px; }
+
+  .bc-cta h2 { font-size: 24px; }
+}
