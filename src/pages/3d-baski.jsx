@@ -3,7 +3,7 @@ import bannerData from "../bannerData";
 import "slick-carousel/slick/slick.css"; 
 // Removed invalid slick-theme.css import
 import { useNavigate } from "react-router-dom";
-import "./Anasayfa.css";
+import "./3d-baski.css";
 import FAQ from "../components/FAQ";
 import { useEffect, useState } from "react";
 import bannerDesktop from "../bannerDataDesktop";
