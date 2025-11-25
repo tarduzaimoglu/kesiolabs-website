@@ -1,0 +1,317 @@
+/* --- BÖYLE ÇALIŞIR ALANI --- */
+.steps-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.steps-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #111827;
+}
+
+.steps-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+.steps-wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.step-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  width: 320px;
+  min-height: 190px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: relative;
+  text-align: left;
+}
+
+.step-number {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.step-box h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.step-box p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.step-link {
+  font-size: 14px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* --- ALTTAKİ TEKLİF BUTONU --- */
+.steps-button-area {
+  margin-top: 35px;
+}
+
+.main-button {
+  background: #397eff;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 10px 35px rgba(57, 126, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.main-button:hover {
+  transform: translateY(-3px);
+}
+/* --- MAP SECTION --- */
+.homepage-map-section {
+  margin-top: 60px;
+}
+
+.map-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.map-address {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.map-embed-container {
+  width: 100%;
+  height: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.map-embed-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* --- BANNER SLIDER GENEL --- */
+.banner-slider {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- HER SLIDE --- */
+.banner-slide {
+  position: relative;
+  width: 100%;
+}
+
+/* --- RESİMİN KENDİSİ --- */
+.banner-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;       /* Mobilde bile taşı taşırmadan görünür */
+  border-radius: 12px;
+}
+
+/* --- MOBİLDE BANNER YÜKSEKLİĞİ OTOMATİK OLSUN --- */
+@media (max-width: 768px) {
+  .banner-img {
+    height: auto;
+    max-height: 300px;
+  }
+}
+
+/* --- OVERLAY (EĞER TEKRAR İSTERSEN) --- */
+.banner-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+
+  /* mobilde küçülür */
+  width: 90%;
+}
+
+.banner-overlay h1 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.banner-overlay p {
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.banner-btn {
+  margin-top: 16px;
+  background: #2f80ff;
+  color: white;
+  padding: 14px 34px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.25s ease;
+}
+
+.banner-btn:hover {
+  background: #1f6be0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .banner-overlay h1 { font-size: 24px; }
+  .banner-overlay p { font-size: 14px; }
+  .banner-btn { padding: 10px 24px; font-size: 14px; }
+}
+/* Desktop banner */
+.banner-img {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Mobil banner 3:4 oran */
+@media (max-width: 768px) {
+  .banner-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;   /* ← Mobilde tam 3:4 */
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
+
+
+/* --- CUSTOM ARROWS --- */
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.custom-arrow:hover {
+  background: rgba(0, 0, 0, 0.45);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.custom-prev {
+  left: 20px;
+}
+
+.custom-next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .custom-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+  .custom-prev { left: 10px; }
+  .custom-next { right: 10px; }
+}
+
+/* --- CUSTOM DOTS --- */
+.custom-dots {
+  margin-top: 12px !important;
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+}
+
+.custom-dots li { width: auto; height: auto; }
+.custom-dots li button { padding: 0; }
+
+.custom-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #397eff;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.custom-dots .slick-active .custom-dot {
+  background: #397eff;
+  border-color: #397eff;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .custom-dot {
+    width: 9px;
+    height: 9px;
+  }
+}
+/* Slick default dot içeriğini tamamen yok et */
+.slick-dots li button:before {
+  font-size: 0 !important;
+  color: transparent !important;
+  opacity: 0 !important;
+}
+.slick-dots li button {
+  width: 0px !important;
+  height: 0px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.slick-dots li button:before {
+  display: none !important;
+}
+.slick-dots {
+  position: static !important;
+}
+
+.slick-dots li {
+  margin: 0 6px !important;
+}
